@@ -16,31 +16,7 @@ and open the template in the editor.
     <body>
         
         
-        <f:view>
-
-
-            <h:form>
-                <h1><h:outputText value="Create/Edit"/></h1>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="IdTorneo:" for="idTorneo" />
-                    <h:inputText id="idTorneo" value="#{torneoManagedBean.torneo.idTorneo}" title="IdTorneo" required="true" requiredMessage="The IdTorneo field is required."/>
-                    <h:outputLabel value="NombreTorneo:" for="nombreTorneo" />
-                    <h:inputText id="nombreTorneo" value="#{torneoManagedBean.torneo.nombreTorneo}" title="NombreTorneo" required="true" requiredMessage="The NombreTorneo field is required."/>
-                    <h:outputLabel value="Organizador:" for="organizador" />
-                    <h:inputText id="organizador" value="#{torneoManagedBean.torneo.organizador}" title="Organizador" required="true" requiredMessage="The Organizador field is required."/>
-                    <h:outputLabel value="DatosContactoOrganizador:" for="datosContactoOrganizador" />
-                    <h:inputTextarea rows="4" cols="30" id="datosContactoOrganizador" value="#{torneoManagedBean.torneo.datosContactoOrganizador}" title="DatosContactoOrganizador" required="true" requiredMessage="The DatosContactoOrganizador field is required."/>
-                    <h:outputLabel value="FechaInicio:" for="fechaInicio" />
-                    <h:inputText id="fechaInicio" value="#{torneoManagedBean.torneo.fechaInicio}" title="FechaInicio" required="true" requiredMessage="The FechaInicio field is required.">
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                    </h:inputText>
-                    <h:outputLabel value="FechaFin:" for="fechaFin" />
-                    <h:inputText id="fechaFin" value="#{torneoManagedBean.torneo.fechaFin}" title="FechaFin" required="true" requiredMessage="The FechaFin field is required.">
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                    </h:inputText>
-                </h:panelGrid>
-            </h:form>
-        </f:view>
+       
 
         
         <f:view>
@@ -49,15 +25,13 @@ and open the template in the editor.
             <h:form>
                 <h1><h:outputText value="Create/Edit"/></h1>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="IdSeguimiento:" for="idSeguimiento" />
-                    <h:inputText id="idSeguimiento" value="#{seguimientoManagedBean.seguimiento.idSeguimiento}" title="IdSeguimiento" required="true" requiredMessage="The IdSeguimiento field is required."/>
                     <h:outputLabel value="FechaInicio:" for="fechaInicio" />
                     <h:inputText id="fechaInicio" value="#{seguimientoManagedBean.seguimiento.fechaInicio}" title="FechaInicio" required="true" requiredMessage="The FechaInicio field is required.">
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:inputText>
                     <h:outputLabel value="FechaFin:" for="fechaFin" />
                     <h:inputText id="fechaFin" value="#{seguimientoManagedBean.seguimiento.fechaFin}" title="FechaFin" required="true" requiredMessage="The FechaFin field is required.">
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:inputText>
                     <h:outputLabel value="ResultadoSeguimiento:" for="resultadoSeguimiento" />
                     <h:inputText id="resultadoSeguimiento" value="#{seguimientoManagedBean.seguimiento.resultadoSeguimiento}" title="ResultadoSeguimiento" required="true" requiredMessage="The ResultadoSeguimiento field is required."/>
@@ -66,14 +40,15 @@ and open the template in the editor.
                     <h:outputLabel value="IdEntrenador:" for="idEntrenador" />
                     <h:selectOneMenu id="idEntrenador" value="#{seguimientoManagedBean.seguimiento.idEntrenador}" title="IdEntrenador" required="true" requiredMessage="The IdEntrenador field is required.">
                         <!-- TODO: update below reference to list of available items-->
-                        <f:selectItems value="#{fixme}"/>
+                        <f:selectItems value="#{usuarioManagedBean.listUsers()}" var="usuarios" itemLabel="#{usuarios.documento}"/>
                     </h:selectOneMenu>
                     <h:outputLabel value="IdJugador:" for="idJugador" />
                     <h:selectOneMenu id="idJugador" value="#{seguimientoManagedBean.seguimiento.idJugador}" title="IdJugador" required="true" requiredMessage="The IdJugador field is required.">
                         <!-- TODO: update below reference to list of available items-->
-                        <f:selectItems value="#{fixme}"/>
+                        <f:selectItems value="#{jugadorManagedBean.listarJugadores()}" var="Jugadores" itemLabel="#{Jugadores.idJugador}"/>
                     </h:selectOneMenu>
                 </h:panelGrid>
+                <h:commandButton value="registrar" action="#{seguimientoManagedBean.registrarSeguimiento()}"/>
             </h:form>
         </f:view>
 
