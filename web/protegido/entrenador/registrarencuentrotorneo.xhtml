@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="../../resources/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="../../resources/css/cards.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+
+    <body>
+
+        <ui:composition template="./../../WEB-INF/templates/template.xhtml">
+
+            <ui:define name="content">
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-4"  style="padding-top: 90px;">
+                                <h:form>
+
+                                    <h:outputLabel value="Fecha del encuentro"/>
+                                    <br/>
+                                    <p:calendar  value="#{encuentroTorneoManagedBean.encuentroTorneo.horaInicio}"/>
+                                    <br/>
+                                    <h:outputLabel value="Descripcion" />
+                                    <h:inputTextarea class="form-control" rows="4" cols="30" id="descripcion" value="#{encuentroTorneoManagedBean.encuentroTorneo.descripcion}" title="Descripcion" required="true" requiredMessage="The Descripcion field is required."/>
+
+                                    <h:outputLabel value="Resultado"/>
+                                    <h:inputTextarea class="form-control" rows="4" cols="30" id="resultado" value="#{encuentroTorneoManagedBean.encuentroTorneo.resultado}" title="Resultado" required="true" requiredMessage="The Resultado field is required."/>
+
+                                    <h:outputLabel value="Torneo" />
+                                    <h:selectOneMenu class="form-control" id="fkIdTorneo" value="#{encuentroTorneoManagedBean.encuentroTorneo.fkIdTorneo}" title="FkIdTorneo" required="true" requiredMessage="The FkIdTorneo field is required.">
+                                        <!-- TODO: update below reference to list of available items-->
+                                        <f:selectItems value="#{torneoManagedBean.listar()}" var="lis" itemLabel="#{lis.nombreTorneo}"/>
+                                    </h:selectOneMenu>
+
+                                    <h:outputLabel value="Barrio" />
+                                    <h:selectOneMenu class="form-control" id="fkIdBarrio" value="#{encuentroTorneoManagedBean.encuentroTorneo.fkIdBarrio}" title="FkIdBarrio" required="true" requiredMessage="The FkIdBarrio field is required.">
+                                        <!-- TODO: update below reference to list of available items-->
+                                        <f:selectItems value="#{barrioManagedBean.listar()}" var="lisbar" itemLabel="#{lisbar.nombreBarrio},#{lisbar.fkIdLocalidad.nombreLocalidad}"/>
+                                    </h:selectOneMenu>
+
+                                </h:form>
+                                <br/>
+                                <p:commandButton value="Registrar" actionListener="#{encuentroTorneoManagedBean.crearEncuentro()}"/>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -10,6 +10,8 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -53,5 +55,15 @@ public class TorneoManagedBean implements Serializable, InterfaceController<Torn
         tf.create(torneo);
     }
     
-    
+    public void edit(){
+     try {
+
+            tf.edit(torneo);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "", "modificado con éxito"));
+
+        } catch (Exception e) {
+
+        }
+        
+    }
 }
