@@ -45,17 +45,7 @@ public class PagoManagedBean implements Serializable, InterfaceController<Pago>{
         this.pago = pago;
     }
     
-    public void registrarPago(){
-    pagof.create(pago);
-    }
-    
-    public void eliminarPago(){
-    pagof.remove(pago);
-    }
-    
-    public void modificarPago(){
-    pagof.edit(pago);
-    }
+   
     
     public List<Pago> listarPago() {
 
