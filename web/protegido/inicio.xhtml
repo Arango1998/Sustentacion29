@@ -11,6 +11,15 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-        hola
+   
+        <b:dataTableColumn value="#{item.documento}" label="Documento"/>
+                            <b:dataTableColumn value="#{item.primerNombre}" label="Primer Nombre"/>
+                            <b:dataTableColumn value="#{item.primerApellido}" label="Primer Apellido"/>
+                              <b:dataTableColumn value="#{item.correo}" label="Correo"/>
+                                <b:dataTableColumn value="#{item.primerApellido}" label="Primer Apellido"/>
+                             <b:dataTableColumn value="#{item.idTipoRol.nombreRol}" label="Nombre"/>
+                              <b:dataTableColumn value="#{item.idEstado.nombreEstado}" label="Nombre"/>
+                           
+        
     </body>
 </html>
