@@ -17,21 +17,23 @@
 
         <ui:composition template="./../../WEB-INF/templates/template.xhtml">
 
-            <ui:define name="content">
+            <ui:define name="content" >
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
 
                             <div class="col-lg-4"></div>
-                            <div class="col-lg-4"  style="padding-top: 90px;">
+                            <div class="col-lg-4"  style="padding-top: 30px;">
                                 <h:form>
-                                    <p:growl id="growl" showDetail="true" sticky="true" /> 
+                                    <center><h1><h:outputText value="Registro de Torneos"/></h1></center>
+
+                                    <br/>
                                     <div class="rowContainer">
 
 
                                         <h:outputLabel  value="Nombre del Torneo"/>
 
-                                            <h:inputText  class="form-control" id="nombreTorneo" value="#{torneoManagedBean.torneo.nombreTorneo}" title="Nombre delTorneo" required="true" requiredMessage="The IdTorneo field is required."/>
+                                        <h:inputText  class="form-control" id="nombreTorneo" value="#{torneoManagedBean.torneo.nombreTorneo}" title="Nombre delTorneo" required="true" requiredMessage="The IdTorneo field is required."/>
 
                                         <h:outputLabel value="Organizador"/>
 
@@ -50,7 +52,7 @@
                                         <p:calendar value="#{torneoManagedBean.torneo.fechaFin}"/>
                                         <br/>
                                         <br/>
-                                        <p:commandButton class="btn btn-outline btn-success" value="Registrar" update="growl" action="#{torneoManagedBean.create()}"/>
+                                        <p:commandButton class="btn btn-outline btn-success" value="Registrar" action="#{torneoManagedBean.create()}"/>
 
 
                                     </div>
