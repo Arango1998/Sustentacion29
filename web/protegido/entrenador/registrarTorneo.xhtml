@@ -43,14 +43,14 @@
 
                                         <h:outputLabel value="Inicio"/>
                                         <br/>
-                                        <p:calendar  value="#{torneoManagedBean.torneo.fechaInicio}"/>
+                                        <p:calendar id="popup" value="#{torneoManagedBean.torneo.fechaInicio}"/>
                                         <br/>
                                         <h:outputLabel value="Finalización"/>
                                         <br/>
                                         <p:calendar value="#{torneoManagedBean.torneo.fechaFin}"/>
                                         <br/>
                                         <br/>
-                                        <p:commandButton class="btn btn-outline btn-success" value="Registrar" update="growl" action="#{torneoManagedBean.registrarTorneo()}"/>
+                                        <p:commandButton class="btn btn-outline btn-success" value="Registrar" update="growl" action="#{torneoManagedBean.create()}"/>
 
 
                                     </div>
