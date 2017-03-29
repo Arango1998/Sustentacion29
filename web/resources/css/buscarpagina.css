@@ -1,0 +1,40 @@
+
+
+input#buscador {
+	position: left;
+	border-radius: 40px;	
+	
+	background-color: #3c3c3c;
+	background: rgba(0,0,0,.2);
+	color: #fff;
+	width: 250px;
+	height: 35px;
+	outline: none;
+	border: 0px;
+	font-size: 1.3em;
+	text-align: right;
+	padding-right: 40px;
+	background-image: url(../images/paginainicio/lupa.png);
+	background-repeat: no-repeat;
+	background-position: 8px 8px;
+	-webkit-transition: background-position .4s;
+}
+
+input#buscador:focus {
+background-position: 250px 15px;
+
+text-align: right;
+}
+
+::-webkit-input-placeholder {
+	
+	color: #fff;
+	
+	opacity: 5;
+}
+li:hover p.menu {
+	position: relative;
+	opacity: 1;
+}
+
+

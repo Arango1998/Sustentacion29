@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <head>
+        <title>Modulo Usuarios</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        
+        
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="IdTorneo:" for="idTorneo" />
+                    <h:inputText id="idTorneo" value="#{torneoManagedBean.torneo.idTorneo}" title="IdTorneo" required="true" requiredMessage="The IdTorneo field is required."/>
+                    <h:outputLabel value="NombreTorneo:" for="nombreTorneo" />
+                    <h:inputText id="nombreTorneo" value="#{torneoManagedBean.torneo.nombreTorneo}" title="NombreTorneo" required="true" requiredMessage="The NombreTorneo field is required."/>
+                    <h:outputLabel value="Organizador:" for="organizador" />
+                    <h:inputText id="organizador" value="#{torneoManagedBean.torneo.organizador}" title="Organizador" required="true" requiredMessage="The Organizador field is required."/>
+                    <h:outputLabel value="DatosContactoOrganizador:" for="datosContactoOrganizador" />
+                    <h:inputTextarea rows="4" cols="30" id="datosContactoOrganizador" value="#{torneoManagedBean.torneo.datosContactoOrganizador}" title="DatosContactoOrganizador" required="true" requiredMessage="The DatosContactoOrganizador field is required."/>
+                    <h:outputLabel value="FechaInicio:" for="fechaInicio" />
+                    <h:inputText id="fechaInicio" value="#{torneoManagedBean.torneo.fechaInicio}" title="FechaInicio" required="true" requiredMessage="The FechaInicio field is required.">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="FechaFin:" for="fechaFin" />
+                    <h:inputText id="fechaFin" value="#{torneoManagedBean.torneo.fechaFin}" title="FechaFin" required="true" requiredMessage="The FechaFin field is required.">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+
+        
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="IdSeguimiento:" for="idSeguimiento" />
+                    <h:inputText id="idSeguimiento" value="#{seguimientoManagedBean.seguimiento.idSeguimiento}" title="IdSeguimiento" required="true" requiredMessage="The IdSeguimiento field is required."/>
+                    <h:outputLabel value="FechaInicio:" for="fechaInicio" />
+                    <h:inputText id="fechaInicio" value="#{seguimientoManagedBean.seguimiento.fechaInicio}" title="FechaInicio" required="true" requiredMessage="The FechaInicio field is required.">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="FechaFin:" for="fechaFin" />
+                    <h:inputText id="fechaFin" value="#{seguimientoManagedBean.seguimiento.fechaFin}" title="FechaFin" required="true" requiredMessage="The FechaFin field is required.">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="ResultadoSeguimiento:" for="resultadoSeguimiento" />
+                    <h:inputText id="resultadoSeguimiento" value="#{seguimientoManagedBean.seguimiento.resultadoSeguimiento}" title="ResultadoSeguimiento" required="true" requiredMessage="The ResultadoSeguimiento field is required."/>
+                    <h:outputLabel value="Observacion:" for="observacion" />
+                    <h:inputTextarea rows="4" cols="30" id="observacion" value="#{seguimientoManagedBean.seguimiento.observacion}" title="Observacion" required="true" requiredMessage="The Observacion field is required."/>
+                    <h:outputLabel value="IdEntrenador:" for="idEntrenador" />
+                    <h:selectOneMenu id="idEntrenador" value="#{seguimientoManagedBean.seguimiento.idEntrenador}" title="IdEntrenador" required="true" requiredMessage="The IdEntrenador field is required.">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{fixme}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="IdJugador:" for="idJugador" />
+                    <h:selectOneMenu id="idJugador" value="#{seguimientoManagedBean.seguimiento.idJugador}" title="IdJugador" required="true" requiredMessage="The IdJugador field is required.">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{fixme}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+
+        
+        
+        
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="Crear Usuario"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Documento:" for="documento" />
+                    <h:inputText id="documento" value="#{registroUsuarioManagedBean.usuario.documento}" title="Documento" required="true" requiredMessage="The Documento field is required."/>
+                    <h:outputLabel value="PrimerNombre:" for="primerNombre" />
+                    <h:inputText id="primerNombre" value="#{registroUsuarioManagedBean.usuario.primerNombre}" title="PrimerNombre" required="true" requiredMessage="The PrimerNombre field is required."/>
+                    <h:outputLabel value="SegundoNombre:" for="segundoNombre" />
+                    <h:inputText id="segundoNombre" value="#{registroUsuarioManagedBean.usuario.segundoNombre}" title="SegundoNombre" />
+                    <h:outputLabel value="PrimerApellido:" for="primerApellido" />
+                    <h:inputText id="primerApellido" value="#{registroUsuarioManagedBean.usuario.primerApellido}" title="PrimerApellido" required="true" requiredMessage="The PrimerApellido field is required."/>
+                    <h:outputLabel value="SegundoApellido:" for="segundoApellido" />
+                    <h:inputText id="segundoApellido" value="#{registroUsuarioManagedBean.usuario.segundoApellido}" title="SegundoApellido" />
+                    <h:outputLabel value="Clave:" for="clave" />
+                    <h:inputText id="clave" value="#{registroUsuarioManagedBean.usuario.clave}" title="Clave" />
+                    <h:outputLabel value="FechaDeNacimento:" for="fechaDeNacimento" />
+                    <h:inputText id="fechaDeNacimento" value="#{registroUsuarioManagedBean.usuario.fechaDeNacimento}" title="FechaDeNacimento" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="Genero:" for="genero" />
+                    <h:inputText id="genero" value="#{registroUsuarioManagedBean.usuario.genero}" title="Genero" required="true" requiredMessage="The Genero field is required."/>
+                    <h:outputLabel value="Rh:" for="rh" />
+                    <h:inputText id="rh" value="#{registroUsuarioManagedBean.usuario.rh}" title="Rh" />
+                    <h:outputLabel value="Eps:" for="eps" />
+                    <h:inputText id="eps" value="#{registroUsuarioManagedBean.usuario.eps}" title="Eps" />
+                    <h:outputLabel value="Telefono:" for="telefono" />
+                    <h:inputText id="telefono" value="#{registroUsuarioManagedBean.usuario.telefono}" title="Telefono" />
+                    <h:outputLabel value="Correo:" for="correo" />
+                    <h:inputText id="correo" value="#{registroUsuarioManagedBean.usuario.correo}" title="Correo" />
+            
+                </h:panelGrid>
+                <h:commandButton value="Registrar Usuario" action="#{registroUsuarioManagedBean.creaUsuarioInvitado()}"/>
+            </h:form>
+        </f:view>
+
+        
+        
+        
+        
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="Crear Categoria"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="NombreCategoria:" for="nombreCategoria" />
+                    <h:inputText id="nombreCategoria" value="#{categoriaManagedBean.categoria.nombreCategoria}" title="NombreCategoria" required="true" requiredMessage="The NombreCategoria field is required."/>
+                </h:panelGrid>
+                <h:commandButton value="registrar categoria" action="#{categoriaManagedBean.crearCatagoria()}"/>
+            </h:form>
+            
+            
+
+
+            <h:form>
+                <h1><h:outputText value="List"/></h1>
+                <p:dataTable value="#{categoriaManagedBean.listCategorias()}" var="item">
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="IdCategoria"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idCategoria}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="NombreCategoria"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nombreCategoria}"/>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+
+            
+        </f:view>
+        
+        <h:form>
+            <h1><h:outputText value="Crear Equipo"/></h1>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="NombreEquipo:" for="nombreEquipo" />
+                <h:inputText id="nombreEquipo" value="#{equipoManagedBean.equipo.nombreEquipo}" title="NombreEquipo" required="true" requiredMessage="The NombreEquipo field is required."/>
+                <h:outputLabel value="FkIdCategoria:" for="fkIdCategoria" />
+                <h:selectOneMenu id="fkIdCategoria" value="#{equipoManagedBean.equipo.fkIdCategoria}" title="FkIdCategoria" required="true" requiredMessage="The FkIdCategoria field is required.">
+                    <!-- TODO: update below reference to list of available items-->
+                    <f:selectItems value="#{categoriaManagedBean.listCategorias()}" var="categoria" itemLabel="#{categoria.nombreCategoria}"/>
+                </h:selectOneMenu>
+                <h:outputLabel value="IdUsuario:" for="idUsuario" />
+                <h:selectOneMenu id="idUsuario" value="#{equipoManagedBean.equipo.idUsuario}" title="IdUsuario" required="true" requiredMessage="The IdUsuario field is required.">
+                    <!-- TODO: update below reference to list of available items-->
+                    <f:selectItems value="#{usuarioManagedBean.listUsers()}" var="ewur" itemLabel="#{ewur.documento}"/>
+                </h:selectOneMenu>
+            </h:panelGrid>
+            
+            <h:commandButton value="red" action="#{equipoManagedBean.crearEquipo()}"/>
+        </h:form>
+
+        
+        
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="Crear  Jugador"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="IdJugador:" for="idJugador" />
+                    <h:inputText id="idJugador" value="#{jugadorManagedBean.jugador.idJugador}" title="IdJugador" required="true" requiredMessage="The IdJugador field is required."/>
+                    <h:outputLabel value="Posicion:" for="posicion" />
+                    <h:inputText id="posicion" value="#{jugadorManagedBean.jugador.posicion}" title="Posicion" required="true" requiredMessage="The Posicion field is required."/>
+                    <h:outputLabel value="FkIdEquipo:" for="fkIdEquipo" />
+                    <h:selectOneMenu id="fkIdEquipo" value="#{jugadorManagedBean.jugador.fkIdEquipo}" title="FkIdEquipo" required="true" requiredMessage="The FkIdEquipo field is required.">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{equipoManagedBean.listar()}" var="equipo" itemLabel="#{equipo.nombreEquipo}"/>
+                    </h:selectOneMenu>
+               
+                </h:panelGrid>
+                <h:commandButton value="ewqew}" action="#{jugadorManagedBean.creaJugador()}"/>
+            </h:form>
+        </f:view>
+
+        
+        
+        
+        
+        
+        
+        
+     
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+        
+
+
+        
+        
+        
+        
+    
+        
+        
+
+
+        <h:form>
+            <h1><h:outputText value="Create/Edit"/></h1>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="NombreEquipo:" for="nombreEquipo" />
+                <h:inputText id="nombreEquipo" value="#{equipoManagedBean.equipo.nombreEquipo}" title="NombreEquipo" required="true" requiredMessage="The NombreEquipo field is required."/>
+                <h:outputLabel value="FkIdCategoria:" for="fkIdCategoria" />
+                <h:selectOneMenu id="fkIdCategoria" value="#{equipoManagedBean.equipo.fkIdCategoria}" title="FkIdCategoria" required="true" requiredMessage="The FkIdCategoria field is required.">
+                    <!-- TODO: update below reference to list of available items-->
+                    <f:selectItems value="#{categoriaManagedBean.listCategorias()}" var="categoria" itemLabel="#{categoria.nombreCategoria}"/>
+                </h:selectOneMenu>
+                <h:outputLabel value="IdUsuario:" for="idUsuario" />
+                <h:selectOneMenu id="idUsuario" value="#{equipoManagedBean.equipo.idUsuario}" title="IdUsuario" required="true" requiredMessage="The IdUsuario field is required.">
+                
+                    
+                    <!-- TODO: update below reference to list of available items-->
+                    <f:selectItems value="#{usuarioManagedBean.listUsers()}" var="ewur" itemLabel="#{ewur.documento}"/>
+                </h:selectOneMenu>
+            </h:panelGrid>
+            
+            <h:commandButton value="red" action="#{equipoManagedBean.crearEquipo()}"/>
+        </h:form>
+
+        
+        
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="Crear Usuario"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Documento:" for="documento" />
+                    <h:inputText id="documento" value="#{registroUsuarioManagedBean.usuario.documento}" title="Documento" required="true" requiredMessage="The Documento field is required."/>
+                    <h:outputLabel value="PrimerNombre:" for="primerNombre" />
+                    <h:inputText id="primerNombre" value="#{registroUsuarioManagedBean.usuario.primerNombre}" title="PrimerNombre" required="true" requiredMessage="The PrimerNombre field is required."/>
+                    <h:outputLabel value="SegundoNombre:" for="segundoNombre" />
+                    <h:inputText id="segundoNombre" value="#{registroUsuarioManagedBean.usuario.segundoNombre}" title="SegundoNombre" />
+                    <h:outputLabel value="PrimerApellido:" for="primerApellido" />
+                    <h:inputText id="primerApellido" value="#{registroUsuarioManagedBean.usuario.primerApellido}" title="PrimerApellido" required="true" requiredMessage="The PrimerApellido field is required."/>
+                    <h:outputLabel value="SegundoApellido:" for="segundoApellido" />
+                    <h:inputText id="segundoApellido" value="#{registroUsuarioManagedBean.usuario.segundoApellido}" title="SegundoApellido" />
+                    <h:outputLabel value="Correo:" for="correo" />
+                    <h:inputText id="correo" value="#{registroUsuarioManagedBean.usuario.correo}" title="Correo" />
+                   
+                </h:panelGrid>
+                <h:commandButton value="Registrar Usuario" action="#{registroUsuarioManagedBean.creaUsuarioInvitado()}"/>
+            </h:form>
+        </f:view>
+       
+    </body>
+</html>

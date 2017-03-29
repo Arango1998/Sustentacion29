@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../WEB-INF/templates/template.xhtml">
+
+            <ui:define name="content">
+                
+                <f:view>
+
+
+                    <h:form>
+                        <h1><h:outputText value="Create/Edit"/></h1>
+                        <h:panelGrid columns="2">
+                            
+                            <h:outputLabel value="FechaInicio:" for="fechaInicio" />
+                            <h:inputText id="fechaInicio" value="#{seguimientoManagedBean.seguimiento.fechaInicio}" title="FechaInicio" required="true" requiredMessage="The FechaInicio field is required.">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:inputText>
+                            <h:outputLabel value="FechaFin:" for="fechaFin" />
+                            <h:inputText id="fechaFin" value="#{seguimientoManagedBean.seguimiento.fechaFin}" title="FechaFin" required="true" requiredMessage="The FechaFin field is required.">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:inputText>
+                            <h:outputLabel value="ResultadoSeguimiento:" for="resultadoSeguimiento" />
+                            <h:inputText id="resultadoSeguimiento" value="#{seguimientoManagedBean.seguimiento.resultadoSeguimiento}" title="ResultadoSeguimiento" required="true" requiredMessage="The ResultadoSeguimiento field is required."/>
+                            <h:outputLabel value="Observacion:" for="observacion" />
+                            <h:inputTextarea rows="4" cols="30" id="observacion" value="#{seguimientoManagedBean.seguimiento.observacion}" title="Observacion" required="true" requiredMessage="The Observacion field is required."/>
+                            <h:outputLabel value="IdEntrenador:" for="idEntrenador" />
+                            <h:selectOneMenu id="idEntrenador" value="#{seguimientoManagedBean.seguimiento.idEntrenador}" title="IdEntrenador" required="true" requiredMessage="The IdEntrenador field is required.">
+                                <!-- TODO: update below reference to list of available items-->
+                                <f:selectItems value="#{usuarioManagedBean.listUsers()}" var="usuarios" itemLabel="#{usuarios.idUsuario}"/>
+                            </h:selectOneMenu>
+                            <h:outputLabel value="IdJugador:" for="idJugador" />
+                            <h:selectOneMenu id="idJugador" value="#{seguimientoManagedBean.seguimiento.idJugador}" title="IdJugador" required="true" requiredMessage="The IdJugador field is required.">
+                                <!-- TODO: update below reference to list of available items-->
+                                <f:selectItems value="#{jugadorManagedBean.listarJugadores()}" var="jugadores" itemLabel="#{jugadores.idJugador}"/>
+                            </h:selectOneMenu>
+                        </h:panelGrid>
+                        <h:commandButton action="#{registrarSeguimientoManagedBean.registrarSeguimiento()}" value="registrar"/>
+                    </h:form>
+                </f:view>
+
+
+                    
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

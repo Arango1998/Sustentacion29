@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Facelet Title</title>
+        <link href="resources/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/registrousuarios.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/cards.css" rel="stylesheet" type="text/css"/>
+
+        <script src="resources/js/jquery.js" type="text/javascript"></script>
+        <script src="resources/js/registrousuario.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <section>
+                    <div class="wizard">
+                        <div class="wizard-inner">
+                            <div class="connecting-line"></div>
+                            <ul class="nav nav-tabs" role="tablist">
+
+                                <li role="presentation" class="active">
+                                    <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Datos del Jugador">
+                                        <span class="round-tab">
+                                            <i class="glyphicon glyphicon-user"></i>
+                                        </span>
+                                    </a>
+                                </li>
+
+                                <li role="presentation" class="disabled">
+                                    <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Datos del Acudiente">
+                                        <span class="round-tab">
+                                            <i class="fa fa-users"></i>
+                                        </span>
+                                    </a>
+                                </li>
+
+
+
+                                <li role="presentation" class="disabled">
+                                    <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                                        <span class="round-tab">
+                                            <i class="glyphicon glyphicon-ok"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <form role="form">
+                            <div class="tab-content">
+                                <div class="tab-pane active" role="tabpanel" id="step1">
+                                    <h1 class="branco">Datos personales Jugador</h1>
+                                    <div class="form-group">
+                                        <f:view>
+                                            <h:form>
+                                             
+                                                  <div class="rowContainer">
+                                                      
+                                            <label id="branco" class="col-sm-2 control-label">Primer Nombre</label>
+                                            <div class="col-sm-4">
+                                                <h:inputText id="primerNombre" value="#{usuarioManagedBean.usuario.primerNombre}" class="form-control" title="PrimerNombre" required="true" requiredMessage="The PrimerNombre field is required."/>
+                                            </div>
+                                        </div>
+                                                 <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Segundo Nombre</label>
+                                            <div class="col-sm-4">
+                                                 <h:inputText id="segundoNombre" value="#{usuarioManagedBean.usuario.segundoNombre}" class="form-control"   title="SegundoNombre" />
+                                               
+                                               
+                                            </div>
+                                        </div>
+                                                <br></br>
+                                        <br></br>
+                                           <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Primer Apellido</label>
+                                            <div class="col-sm-4">
+                                                <h:inputText id="primerApellido" value="#{usuarioManagedBean.usuario.primerApellido}" class="form-control" title="PrimerApellido" required="true" requiredMessage="The PrimerApellido field is required."/>
+                                                
+                                            </div>
+                                        </div>
+                                         
+                                        
+                                        <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Segundo Apellido</label>
+                                            <div class="col-sm-4">
+                                                <h:inputText id="segundoApellido" value="#{usuarioManagedBean.usuario.segundoApellido}" class="form-control"  title="SegundoApellido" />
+                                                
+                                               </div>
+                                        </div>
+                                         <br></br>
+                                        <br></br>
+                                        
+                                      
+                                   
+                                          <div class="rowContainer">
+                                                    <h:outputLabel id="branco" class="col-sm-2 control-label" value="Documento:" for="documento" />
+                                                    <div class="col-sm-4">
+                                                        <h:inputText id="documento" value="#{usuarioManagedBean.usuario.documento}" class="form-control" title="Documento" required="true" requiredMessage="The Documento field is required."/>
+                                                    </div>
+                                                </div>
+                                        
+                                          <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Fecha Nacimiento</label>
+                                            <div class="col-sm-4">
+                                                <h:inputText id="fechaDeNacimento" value="#{usuarioManagedBean.usuario.fechaDeNacimento}" class="form-control" title="FechaDeNacimento" required="true" requiredMessage="The FechaDeNacimento field is required.">
+                                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                </h:inputText>
+                                            </div>
+                                        </div>
+                                          <br></br>
+                                        <br></br>
+                                          <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Correo</label>
+                                            <div class="col-sm-4">
+                                                 <h:inputText id="correo" value="#{usuarioManagedBean.usuario.correo}" class="form-control" title="Correo" />
+                                            </div>
+                                        </div>
+                                           <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Telefono</label>
+                                            <div class="col-sm-4">
+                                                 <h:inputText id="telefono" value="#{usuarioManagedBean.usuario.telefono}" class="form-control" title="Telefono" required="true" requiredMessage="The Telefono field is required."/>
+                                              
+                                            </div>
+                                        </div>
+                                              <br></br>
+                                        <br></br>
+                                   
+                                              
+
+
+
+
+                                             
+                                                
+                                          
+                                                <h:outputLabel value="Clave:" for="clave" />
+                                                <h:inputText id="clave" value="#{usuarioManagedBean.usuario.clave}" title="Clave" required="true" requiredMessage="The Clave field is required."/>
+                                                <h:outputLabel value="FechaDeNacimento:" for="fechaDeNacimento" />
+                                                
+                                                <h:outputLabel value="Genero:" for="genero" />
+                                                <h:inputText id="genero"  title="Genero" required="true" requiredMessage="The Genero field is required."/>
+                                                <h:outputLabel value="Rh:" for="rh" />
+                                                <h:inputText id="rh" value="#{usuarioManagedBean.usuario.rh}" title="Rh" required="true" requiredMessage="The Rh field is required."/>
+                                                <h:outputLabel value="Eps:" for="eps" />
+                                                <h:inputText id="eps" value="#{usuarioManagedBean.usuario.eps}" title="Eps" required="true" requiredMessage="The Eps field is required."/>
+                                                <h:outputLabel value="Telefono:" for="telefono" />
+                                                 <h:outputLabel value="Correo:" for="correo" />
+                                               
+
+
+                                                <h:commandButton value="registrar" actionListener="#{usuarioManagedBean.crearUsuarioAcudiente()}"/>
+                                            </h:form>
+                                        </f:view>
+
+
+
+
+                                    </div>
+                                    <ul class="list-inline pull-right">
+                                        <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                                        <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="step3">
+                                    <h3>Step 3</h3>
+                                    <p>This is step 3</p>
+                                    <ul class="list-inline pull-right">
+                                        <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                                        <li><button type="button" class="btn btn-default next-step">Skip</button></li>
+                                        <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
+                                    </ul>
+
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="complete">
+                                    <h3>Complete</h3>
+                                    <p>You have successfully completed all steps.</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="resources/js/bootstrap.js" type="text/javascript"></script>
+
+    </body>
+</html>
