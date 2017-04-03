@@ -50,6 +50,7 @@ public class PagoManagedBean implements Serializable, InterfaceController<Pago>{
     public List<Pago> listarPago() {
 
         return pagof.findAll();
+        
     }
 
     @Override
