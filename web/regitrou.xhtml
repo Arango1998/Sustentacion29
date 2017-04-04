@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="resources/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/login.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/cards.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="main" style="padding:2%;margin-top:5%;">        	
+            <div class="col-lg-12">
+                <div class="container">
+
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-4">
+                        <div class="row grids text-center">
+                            <div class="view view-tenth">
+                                <!--  <a href="single.html">-->
+                                <div class="inner_content clearfix">
+                                    <div class="product_image">
+                                        <img src="resources/images/paginainicio/Logo.png" class="img-responsive" alt="" style="margin:0% auto;"/>
+                                    </div>
+                                    <div class="label-product">
+
+                                    </div>
+                                    <div class="mask" style="width:100% !important; ">
+                                        <h2>Bienvenido Futuro Usuario</h2>
+                                        <div class="main">
+                                          <center>
+                       
+                <f:view>
+
+
+                    <h:form>
+                        
+                     
+                            <h:outputLabel value="Documento:" for="documento" />
+                            <h:inputText id="documento" value="#{registroUsuarioManagedBean.usuario.documento}" title="Documento" required="true" requiredMessage="The Documento field is required."/>
+                            <h:outputLabel value="Primer Nombre:" for="primerNombre" />
+                            <h:inputText id="primerNombre" value="#{registroUsuarioManagedBean.usuario.primerNombre}" title="PrimerNombre" required="true" requiredMessage="The PrimerNombre field is required."/>
+                            <h:outputLabel value="Primer Apellido:" for="primerApellido" />
+                            <h:inputText id="primerApellido" value="#{registroUsuarioManagedBean.usuario.primerApellido}" title="PrimerApellido" required="true" requiredMessage="The PrimerApellido field is required."/>
+                            <h:outputLabel value="Clave:" for="clave" />
+                            <h:inputText id="clave" value="#{registroUsuarioManagedBean.usuario.clave}" title="Clave" />
+                            <h:outputLabel value="Fecha De Nacimento:" for="fechaDeNacimento" />
+                            <h:inputText id="fechaDeNacimento" value="#{registroUsuarioManagedBean.usuario.fechaDeNacimento}" title="FechaDeNacimento" >
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:inputText>
+                            <h:outputLabel value="Genero:" for="genero" />
+                            <h:inputText id="genero" value="#{registroUsuarioManagedBean.usuario.genero}" title="Genero" required="true" requiredMessage="The Genero field is required."/>
+                            <h:outputLabel value="Rh:" for="rh" />
+                            <h:inputText id="rh" value="#{registroUsuarioManagedBean.usuario.rh}" title="Rh" />
+                            <h:outputLabel value="Eps:" for="eps" />
+                            <h:inputText id="eps" value="#{registroUsuarioManagedBean.usuario.eps}" title="Eps" />
+                            <h:outputLabel value="Telefono:" for="telefono" />
+                            <h:inputText id="telefono" value="#{registroUsuarioManagedBean.usuario.telefono}" title="Telefono" />
+                            <h:outputLabel value="Correo:" for="correo" />
+                            <h:inputText id="correo" value="#{registroUsuarioManagedBean.usuario.correo}" title="Correo" />
+                           
+                           
+                         
+                     
+                        
+                            <h:commandButton value="Registrar Usuario" action="#{registroUsuarioManagedBean.creaUsuarioInvitado()}"/>
+                    </h:form>
+                </f:view>
+                </center>
+                                            
+                                            <br></br>   
+                                                <a href="paginaprincipal.xhtml" class="btn btn-outline btn-success"><span class="fa fa-home"></span>Página principal</a>
+
+                                                <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--  </a> -->
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+    </body>
+</html>
