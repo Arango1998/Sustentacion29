@@ -19,7 +19,7 @@ import javax.enterprise.context.RequestScoped;
  *
  * @author Iesua
  */
-@Named(value = "valoracionManagedBEan")
+@Named(value = "valoracionManagedBean")
 @RequestScoped
 public class ValoracionManagedBean implements Serializable, InterfaceController<Valoracion>{
 

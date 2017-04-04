@@ -52,7 +52,9 @@ public class ItemManagedBean implements Serializable, InterfaceController<Item> 
         return itf.findAll();
     }
     
-    
+    public void registrarItem(){
+        itf.create(item);
+    }
     
     
 

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../../WEB-INF/templates/template.xhtml">
+
+            <ui:define name="content">
+                <f:view>
+
+
+                    <h:form>
+                        <h1><h:outputText value="Registro de valoraciones"/></h1>
+                        <h:panelGrid columns="2">
+                            
+                            <h:outputLabel value="IdSeguimiento:" for="idSeguimiento" />
+                            <h:selectOneMenu id="idSeguimiento" value="#{valoracionManagedBean.valoracion.idSeguimiento}" title="IdSeguimiento" required="true" requiredMessage="The IdSeguimiento field is required.">
+                                <!-- TODO: update below reference to list of available items-->
+                                <f:selectItems value="#{seguimientoManagedBean.listarSeguimiento()}" var="seguimientos" itemLabel="#{seguimientos.idSeguimiento}"/>
+                            </h:selectOneMenu>
+                            <h:outputLabel value="Nota:" for="nota" />
+                            <h:inputText id="nota" value="#{valoracionManagedBean.valoracion.nota}" title="Nota" />
+                        </h:panelGrid>
+                        <p:commandButton value="Registrar" action="#{valoracionManagedBean.registrarValoracion()}"/>
+                    </h:form>
+                </f:view>
+
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
