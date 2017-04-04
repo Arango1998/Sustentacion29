@@ -12,6 +12,58 @@
 
             <ui:define name="content">
                 
+                
+                <f:view>
+
+
+                    <h:form>
+                        <h1><h:outputText value="Crear Usuario General"/></h1>
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="Documento:" for="documento" />
+                            <h:inputText id="documento" value="#{registroUsuarioManagedBean.usuario.documento}" title="Documento" required="true" requiredMessage="The Documento field is required."/>
+                            <h:outputLabel value="PrimerNombre:" for="primerNombre" />
+                            <h:inputText id="primerNombre" value="#{registroUsuarioManagedBean.usuario.primerNombre}" title="PrimerNombre" required="true" requiredMessage="The PrimerNombre field is required."/>
+                            <h:outputLabel value="SegundoNombre:" for="segundoNombre" />
+                            <h:inputText id="segundoNombre" value="#{registroUsuarioManagedBean.usuario.segundoNombre}" title="SegundoNombre" />
+                            <h:outputLabel value="PrimerApellido:" for="primerApellido" />
+                            <h:inputText id="primerApellido" value="#{registroUsuarioManagedBean.usuario.primerApellido}" title="PrimerApellido" required="true" requiredMessage="The PrimerApellido field is required."/>
+                            <h:outputLabel value="SegundoApellido:" for="segundoApellido" />
+                            <h:inputText id="segundoApellido" value="#{registroUsuarioManagedBean.usuario.segundoApellido}" title="SegundoApellido" />
+                            <h:outputLabel value="Clave:" for="clave" />
+                            <h:inputText id="clave" value="#{registroUsuarioManagedBean.usuario.clave}" title="Clave" />
+                            <h:outputLabel value="FechaDeNacimento:" for="fechaDeNacimento" />
+                            <h:inputText id="fechaDeNacimento" value="#{registroUsuarioManagedBean.usuario.fechaDeNacimento}" title="FechaDeNacimento" >
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:inputText>
+                            <h:outputLabel value="Genero:" for="genero" />
+                            <h:inputText id="genero" value="#{registroUsuarioManagedBean.usuario.genero}" title="Genero" required="true" requiredMessage="The Genero field is required."/>
+                            <h:outputLabel value="Rh:" for="rh" />
+                            <h:inputText id="rh" value="#{registroUsuarioManagedBean.usuario.rh}" title="Rh" />
+                            <h:outputLabel value="Eps:" for="eps" />
+                            <h:inputText id="eps" value="#{registroUsuarioManagedBean.usuario.eps}" title="Eps" />
+                            <h:outputLabel value="Telefono:" for="telefono" />
+                            <h:inputText id="telefono" value="#{registroUsuarioManagedBean.usuario.telefono}" title="Telefono" />
+                            <h:outputLabel value="Correo:" for="correo" />
+                            <h:inputText id="correo" value="#{registroUsuarioManagedBean.usuario.correo}" title="Correo" />
+                           
+                           
+                            <h:outputLabel value="IdEstado:" for="idEstado" />
+                            <h:selectOneMenu id="idEstado" value="#{registroUsuarioManagedBean.usuario.idEstado}" title="IdEstado" required="true" requiredMessage="The IdEstado field is required.">
+                                <!-- TODO: update below reference to list of available items-->
+                                <f:selectItems value="#{estadoUsuarioManagedBean.listar()}" var="UsuarioU" itemLabel="#{UsuarioU.nombreEstado}"/>
+                            </h:selectOneMenu>
+                            <h:outputLabel value="IdTipoRol:" for="idTipoRol" />
+                            <h:selectOneMenu id="idTipoRol" value="#{registroUsuarioManagedBean.usuario.idTipoRol}" title="IdTipoRol" required="true" requiredMessage="The IdTipoRol field is required.">
+                                <!-- TODO: update below reference to list of available items-->
+                                <f:selectItems value="#{rolManagedBean.listar()}" var="RolU" itemLabel="#{RolU.nombreRol}"/>
+                            </h:selectOneMenu>
+                        </h:panelGrid>
+                        <h:commandButton value="Registrar" action="#{registroUsuarioManagedBean.creaUsuarioGlobal()}"/>
+                    </h:form>
+                </f:view>
+
+                
+               
 
    <f:view>
 
@@ -51,37 +103,7 @@
             </h:form>
         </f:view>
 
-                <f:view>
-
-
-                    <h:form style="padding-top: 100px;">
-                        <center><h1><h:outputText value="Usuarios"/></h1></center>
-                        <b:dataTable value="#{usuarioManagedBean.listUsers()}" var="item">
-
-
-
-                            <b:dataTableColumn value="#{item.documento}" label="Documento"/>
-                            <b:dataTableColumn value="#{item.primerNombre}" label="Primer Nombre"/>
-                            <b:dataTableColumn value="#{item.primerApellido}" label="Primer Apellido"/>
-                            <b:dataTableColumn value="#{item.correo}" label="Correo"/>
-                            <b:dataTableColumn value="#{item.primerApellido}" label="Primer Apellido"/>
-                            <b:dataTableColumn value="#{item.idTipoRol.nombreRol}" label="Nombre"/>
-                            <b:dataTableColumn value="#{item.idEstado.nombreEstado}" label="Nombre"/>
-
-
-
-
-
-
-                            <b:dataTableColumn label="Editar Usuario"> 
-
-                                <a id="modal-379141" href="#modal-container-379141" role="button" class="btn" data-toggle="modal">Modificar</a>
-
-                            </b:dataTableColumn>
-
-                        </b:dataTable>
-                    </h:form>
-                </f:view>
+             
 
 
 
@@ -218,7 +240,7 @@
 
                             <b:dataTableColumn label="Editar Torneo"> 
 
-                                <a id="modal-379141" href="#modal-container-379141" role="button" class="btn" data-toggle="modal">Modificar</a>
+                                <a id="modal-379141" href="#modal-container-379141" role="button" class="btn" data-toggle="modal">...</a>
 
                             </b:dataTableColumn>
 

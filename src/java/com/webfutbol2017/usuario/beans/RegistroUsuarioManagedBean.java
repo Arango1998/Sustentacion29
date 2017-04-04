@@ -64,11 +64,42 @@ public class RegistroUsuarioManagedBean implements Serializable, InterfaceContro
     public void setRolManagedBean(RolManagedBean rolManagedBean) {
         this.rolManagedBean = rolManagedBean;
     }
+    
+    public void creaUsuarioGlobal() {
+        try {
+           
+            usuarioRFacade.create(usuario);
+        } catch (Exception e) {
+        }
+
+    }
 
     public void creaUsuarioInvitado() {
         try {
             usuario.setIdEstado(getEstadoUsuarioManagedBean().getObjectByKey(1));
             usuario.setIdTipoRol(getRolManagedBean().getObjectByKey(5));
+            usuarioRFacade.create(usuario);
+        } catch (Exception e) {
+        }
+
+    }
+    
+    
+       public void creaUsuarioCoordinador() {
+        try {
+            usuario.setIdEstado(getEstadoUsuarioManagedBean().getObjectByKey(2));
+            usuario.setIdTipoRol(getRolManagedBean().getObjectByKey(1));
+            usuarioRFacade.create(usuario);
+        } catch (Exception e) {
+        }
+
+    }
+       
+        
+       public void creaUsuarioJugador() {
+        try {
+            usuario.setIdEstado(getEstadoUsuarioManagedBean().getObjectByKey(2));
+            usuario.setIdTipoRol(getRolManagedBean().getObjectByKey(3));
             usuarioRFacade.create(usuario);
         } catch (Exception e) {
         }

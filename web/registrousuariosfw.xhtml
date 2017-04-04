@@ -1,0 +1,330 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link href="resources/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/registrousuarios.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/cards.css" rel="stylesheet" type="text/css"/>
+
+        <script src="resources/js/jquery.js" type="text/javascript"></script>
+        <script src="resources/js/registrousuario.js" type="text/javascript"></script>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <div class="row">
+                <section>
+                    <div class="wizard">
+                        <div class="wizard-inner">
+                            <div class="connecting-line"></div>
+                            <ul class="nav nav-tabs" role="tablist">
+
+                                <li role="presentation" class="active">
+                                    <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Datos del Jugador">
+                                        <span class="round-tab">
+                                            <i class="glyphicon glyphicon-user"></i>
+                                        </span>
+                                    </a>
+                                </li>
+
+                                <li role="presentation" class="disabled">
+                                    <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Datos del Acudiente">
+                                        <span class="round-tab">
+                                            <i class="fa fa-users"></i>
+                                        </span>
+                                    </a>
+                                </li>
+
+
+
+                                <li role="presentation" class="disabled">
+                                    <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                                        <span class="round-tab">
+                                            <i class="glyphicon glyphicon-ok"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <form role="form">
+                            <div class="tab-content">
+                                <div class="tab-pane active" role="tabpanel" id="step1">
+                                    <h1 class="branco">Datos personales Jugador</h1>
+                                    <div class="form-group">
+                                         <f:view>
+                                            <h:form>
+                                        <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Primer Nombre</label>
+                                            <div class="col-sm-4">
+                                                <h:inputText c:placeholder="Ej: Juan" class="form-control"  id="primerNombre" value="#{registroUsuarioManagedBean.usuario.primerNombre}" title="PrimerNombre" required="true" requiredMessage="The PrimerNombre field is required."/>
+
+                                            </div>
+                                        </div>
+                                        <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Segundo Nombre</label>
+                                            <div class="col-sm-4">
+                                                <h:inputText class="form-control" c:placeholder="Ej: Gillermo" id="segundoNombre" value="#{registroUsuarioManagedBean.usuario.segundoNombre}" title="SegundoNombre" />
+                                            </div>
+                                        </div>
+                                        <br></br>
+                                        <br></br>
+                                        <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Primer Apellido</label>
+                                            <div class="col-sm-4">
+                                                <h:inputText class="form-control" c:placeholder="Ej: Gutierrez" id="primerApellido" value="#{registroUsuarioManagedBean.usuario.primerApellido}" title="PrimerApellido" required="true" requiredMessage="The PrimerApellido field is required."/>
+
+
+                                            </div>
+                                        </div>
+                                        <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Segundo Apellido</label>
+                                            <div class="col-sm-4">
+                                                <h:inputText class="form-control" c:placeholder="Ej: Cuadrado" id="segundoApellido" value="#{registroUsuarioManagedBean.usuario.segundoApellido}" title="SegundoApellido" />
+
+                                            </div>
+                                        </div>
+                                        <br></br>
+                                        <br></br>
+                                        <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Documento</label>
+                                            <div class="col-sm-4">
+                                                <h:inputText c:type="number" c:placeholder="Ej: 910805135"  class="form-control" id="documento" value="#{registroUsuarioManagedBean.usuario.documento}" title="Documento" required="true" requiredMessage="The Documento field is required."/>
+
+
+                                            </div>
+                                        </div>
+                                        <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Fecha Nacimiento</label>
+                                            <div class="col-sm-4">
+                                                <h:inputText c:type="date" class="form-control" id="fechaDeNacimento" value="#{registroUsuarioManagedBean.usuario.fechaDeNacimento}" title="FechaDeNacimento" >
+                                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                </h:inputText>
+                                               
+                                            </div>
+                                        </div>
+                                        <br></br>
+                                        <br></br>
+                                        <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Correo</label>
+                                            <div class="col-sm-4">
+                                                <h:inputText c:type="email" c:placeholder="Ej: JuanG@futbolweb.co" class="form-control" id="correo" value="#{registroUsuarioManagedBean.usuario.correo}" title="Correo" />
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Telefono</label>
+                                            <div class="col-sm-4">
+                                                 <h:inputText c:type="number" c:placeholder="Ej: 3133815587" class="form-control" id="telefono" value="#{registroUsuarioManagedBean.usuario.telefono}" title="Telefono" />
+                                                
+                                            </div>
+                                        </div>
+                                        <br></br>
+                                        <br></br>
+                                        <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Genero</label>
+                                            <div class="col-sm-4">
+                                                 <h:inputText class="form-control" id="genero" value="#{registroUsuarioManagedBean.usuario.genero}" title="Genero" required="true" requiredMessage="The Genero field is required."/>
+                                            </div>
+                                        </div>
+                                        <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">RH</label>
+                                            <div class="col-sm-1">
+                                               <h:inputText class="form-control" id="rh" value="#{registroUsuarioManagedBean.usuario.rh}" title="Rh" />
+
+                                            </div>
+                                        </div>
+                                        <div class="rowContainer">
+                                            <label id="branco" class="col-sm-1 control-label">EPS</label>
+                                            <div class="col-sm-2">
+                                                  <h:inputText class="form-control" c:placeholder="Ej: Famizanar"  id="eps" value="#{registroUsuarioManagedBean.usuario.eps}" title="Eps" />
+                                                
+
+
+                                            </div>
+                                        </div>
+                                        <br></br>
+                                        <br></br>
+                                        <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Clave</label>
+                                            <div class="col-sm-4">
+                                                 <h:inputText c:type="password" c:placeholder="Ej: *************"  class="form-control" id="clave" value="#{registroUsuarioManagedBean.usuario.clave}" title="Clave" />
+                                                
+                                            </div>
+                                        </div>
+                                      
+
+                                        <br></br>
+                                        <br></br>
+
+
+                                    <ul class="list-inline pull-right">
+                                        <li><button type="button" class="btn btn-primary next-step">Continuar</button></li>
+                                    </ul>
+                                    <ul class="list-inline pull-right">
+                                       
+                                        <li><button type="button" class="btn btn-primary next-step">Registrar Jugador</button></li>
+                                    </ul>
+                                    <ul class="list-inline pull-left">
+                                        <a href="paginaprincipal.xhtml" class="btn btn-outline btn-success"><span class="fa fa-home"></span>Principal Page</a>
+                                    </ul>
+                                        
+  <h:commandButton value="Registrar Usuario" action="#{registroUsuarioManagedBean.creaUsuarioInvitado()}"/>
+                                          </h:form>
+                                        </f:view>
+                                    </div>
+
+
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="step2">
+                                    <h1 class="branco">Datos personales Acudiente</h1>
+                                    <div class="form-group">
+                                        <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Primer Nombre</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" name="firstName" placeholder="Ej: Juan" required="" />
+                                            </div>
+                                        </div>
+                                        <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Segundo Nombre</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" name="lastName" placeholder="Ej: Gillermo" required="*" data-fv-row=".rowContainer" />
+                                            </div>
+                                        </div>
+                                        <br></br>
+                                        <br></br>
+                                        <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Primer Apellido</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" name="lastName" placeholder="Ej: Gutierrez" required="*" data-fv-row=".rowContainer" />
+                                            </div>
+                                        </div>
+                                        <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Segundo Apellido</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" name="lastName" placeholder="Ej: Cuadrado" required="*" data-fv-row=".rowContainer" />
+                                            </div>
+                                        </div>
+                                        <br></br>
+                                        <br></br>
+                                        <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Documento</label>
+                                            <div class="col-sm-4">
+                                                <input type="number" class="form-control" name="lastName" placeholder="Ej: 9805135" required="*" data-fv-row=".rowContainer" />
+                                            </div>
+                                        </div>
+                                        <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Fecha Nacimiento</label>
+                                            <div class="col-sm-4">
+                                                <input type="date" class="form-control" name="lastName" placeholder="Gutierrez Saldaño" required="*" data-fv-row=".rowContainer" />
+                                            </div>
+                                        </div>
+                                        <br></br>
+                                        <br></br>
+                                        <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Correo</label>
+                                            <div class="col-sm-4">
+                                                <input type="email" class="form-control" name="number" placeholder="Ej: JuanG@futbolweb.co" required="*" />
+                                            </div>
+                                        </div>
+                                        <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Telefono</label>
+                                            <div class="col-sm-4">
+                                                <input type="number" class="form-control" name="lastName" placeholder="Ej: 3133815587" required="*" data-fv-row=".rowContainer" />
+                                            </div>
+                                        </div>
+                                        <br></br>
+                                        <br></br>
+                                        <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Genero</label>
+                                            <div class="col-sm-4">
+                                                <select  type="text"  class="form-control">
+
+                                                    <option value="">Hombre</option>
+                                                    <option value="">Mujer</option>
+                                                    <option value="" >Otro</option>
+
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">RH</label>
+                                            <div class="col-sm-1">
+                                                <select  type="text"  class="form-control">
+
+                                                    <option value="">O+</option>
+                                                    <option value="">O-</option>
+                                                    <option value="" >A+</option>
+                                                    <option value="">A-</option>
+                                                    <option value="">AB+</option>
+                                                    <option value="">AB-</option>
+
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                        <div class="rowContainer">
+                                            <label id="branco" class="col-sm-1 control-label">EPS</label>
+                                            <div class="col-sm-2">
+                                                <input type="text" class="form-control" name="email" placeholder="Ej: Famizanar" required="*" />
+
+
+                                            </div>
+                                        </div>
+                                        <br></br>
+                                        <br></br>
+                                        <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Clave</label>
+                                            <div class="col-sm-4">
+                                                <input type="password" class="form-control" name="email" placeholder="Ej: *************" required="*" />
+                                            </div>
+                                        </div>
+                                        <div class="rowContainer">
+                                            <label id="branco" class="col-sm-2 control-label">Confirmar Clave</label>
+                                            <div class="col-sm-4">
+                                                <input type="password" class="form-control" name="email" placeholder="Ej: *************" required="*" />
+                                            </div>
+                                        </div>
+
+                                        <br></br>
+                                        <br></br>
+
+
+                                    </div>
+                                    <ul class="list-inline pull-right">
+                                        <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                                        <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="step3">
+                                    <h3>Step 3</h3>
+                                    <p>This is step 3</p>
+                                    <ul class="list-inline pull-right">
+                                        <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                                        <li><button type="button" class="btn btn-default next-step">Skip</button></li>
+                                        <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
+                                    </ul>
+
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="complete">
+                                    <h3>Complete</h3>
+                                    <p>You have successfully completed all steps.</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="resources/js/bootstrap.js" type="text/javascript"></script>
+    </h:body>
+</html>
+

@@ -19,45 +19,42 @@ import javax.servlet.http.HttpServletRequest;
  * @author Cristian Suesca
  */
 @Stateful
-public class UsuarioSessionBean extends AbstractFacade<Usuario> {
-
-    private Usuario usuario;
-    @EJB
-    private UsuarioFacade usuarioFacade;
-    private HttpServletRequest httpServletRequest;
+public class UsuarioSessionBean {
 
     @PersistenceContext(unitName = "webfutbol2017PU")
     private EntityManager em;
 
-    @Override
     protected EntityManager getEntityManager() {
         return em;
     }
 
     public UsuarioSessionBean() {
-        super(Usuario.class);
     }
 
    public Object autenticarSesionUsuario(String documento, String clave) {
         try {
-            usuario = getEntityManager().createNamedQuery("Usuario.findByIdUsuario", Usuario.class).setParameter("documento", documento).getSingleResult();
+            Usuario usuario = getEntityManager().createNamedQuery("Usuario.findByDocumento", Usuario.class).setParameter("documento", documento).getSingleResult();
             if (usuario != null) {
                 if (usuario.getClave().equals(clave)) {
                   //falta captura usuario
-                    if (usuario.getIdEstado().getIdEstado().equals(1)) {
-                        System.out.println("Estado Inactivo");
-                        return 4;
-                        //Consulta o proceso que cambie el estado al loguarse
-                    } else {
+                    if (!usuario.getIdEstado().getIdEstado().equals(1)) {
                         System.out.println("Activo");
                         return usuario;
+                        //Consulta o proceso que cambie el estado al loguarse
+                    } else {
+                        System.out.println("Estado Inactivo");
+                        return 4;
                     }
+                }else {
+                    return 3;
                 }
+            }else{
+                return 2;
             }
         } catch (Exception e) {
             System.out.println("Error!");
             return 1;
-        }return "";
+        }
     }
 
 }

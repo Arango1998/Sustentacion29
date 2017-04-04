@@ -5,7 +5,8 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
     <head>
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -17,7 +18,7 @@ and open the template in the editor.
         <div class="main" style="padding:2%;margin-top:5%;">        	
             <div class="col-lg-12">
                 <div class="container">
-                                 
+
                     <div class="col-lg-4"></div>
                     <div class="col-lg-4">
                         <div class="row grids text-center">
@@ -33,19 +34,18 @@ and open the template in the editor.
                                     <div class="mask" style="width:100% !important; ">
                                         <h2>Bienvenido Señor Usuario</h2>
                                         <div class="main">
-                                            <form>
-                                                <input type="text" class="text" value="Digite Su documento de Login" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                            this.value = 'E-mail address';
-                                                        }" />
-                                                <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                            this.value = 'Password';
-                                                        }"/>
+                                            <h:form>
+                                                <h:inputText id="documento" value="#{loginManagedBean.documento}"/>
+
+                                                <h:inputText id="clave" value="#{loginManagedBean.clave}" title="Clave" />
+                                                <h:commandButton value="Ingresar" action="#{loginManagedBean.iniciarSesion()}"/>
+
                                                 <a href="paginaprincipal.xhtml" class="btn btn-outline btn-success"><span class="fa fa-home"></span>Ingresar</a>
                                                 <br/>
                                                 <a href="paginaprincipal.xhtml" class="btn btn-outline btn-success"><span class="fa fa-home"></span>Página principal</a>
 
                                                 <div class="clearfix"></div>
-                                            </form>
+                                            </h:form>
                                         </div>
                                     </div>
 
