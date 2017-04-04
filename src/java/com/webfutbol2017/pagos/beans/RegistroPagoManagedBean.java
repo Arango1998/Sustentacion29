@@ -5,13 +5,19 @@
  */
 package com.webfutbol2017.pagos.beans;
 
+import com.csvreader.CsvReader;
 import com.futbolweb2017.email.Email;
 import com.webfutbol2017.backend.persistence.entities.Pago;
 import com.webfutbol2017.backend.persistence.facades.PagoFacade;
 import com.webfutbol2017.beans.JugadorManagedBean;
 import com.webfutbol2017.beans.UsuarioManagedBean;
 import com.webfutbol2017.converters.InterfaceController;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -39,6 +45,13 @@ public class RegistroPagoManagedBean implements Serializable, InterfaceControlle
     private UsuarioManagedBean usuarioC;
     @Inject
     private JugadorManagedBean jugadorC;
+    
+    Date fechaPago = null;
+    int monto = 0;
+    String estado = null;
+    int idJugador  = 0;
+    
+         SimpleDateFormat formato = new SimpleDateFormat("MM/dd/yyyy");
     
      @PostConstruct
     public void init(){
@@ -76,4 +89,37 @@ public class RegistroPagoManagedBean implements Serializable, InterfaceControlle
     public Pago getObjectByKey(Integer key) {
      return pagof.find(key);
     }
+    
+     public void InsertarDesdeCsv() throws FileNotFoundException, IOException, ParseException  {
+    //declaramos las variables que vamos a usar en esta clase. En dichas variables vamos cargar los datos que lee
+    //leemos desde nuestro archivo .csv
+    
+         
+         
+    CsvReader reader = null;{
+    
+        //aqui le ponemos el path donde esta ubicado el archivo. OJO..
+        //para colocar los path de ubicaciones en windows ahi que psoner // en ves de /
+        reader = new CsvReader("c:\\Users\\Felipe\\Sena\\ADSI\\pago.csv");
+        reader.setDelimiter(',');
+        while(reader.readRecord()){
+            
+            //aqui cargamos las variables con los datos que estan dentro del archivo
+            fechaPago = formato.parse(reader.get(0));
+            monto = Integer.parseInt(reader.get(1));
+            estado = reader.get(2);
+            idJugador = Integer.parseInt(reader.get(3));
+            
+            
+        pago.setFechaPago(fechaPago);
+        pago.setMonto(monto);
+        pago.setEstado(estado);
+        pago.setFkIdJugador(jugadorC.getObjectByKey(idJugador));
+        pagof.create(pago);
+        }
+     }   
+     
+     }                
+
+
 }

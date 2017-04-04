@@ -38,7 +38,7 @@
                             <h:outputLabel value="Estado:" for="estado" />
                             <h:inputText id="estado" value="#{registroPagoManagedBean.pago.estado}" title="Estado" required="true" requiredMessage="Este campo es requerido."/>
                             
-                            <h:outputLabel value="FkIdJugador:" for="fkIdJugador" />
+                            <h:outputLabel value="Id del Jugador:" for="fkIdJugador" />
                             <h:selectOneMenu id="fkIdJugador" value="#{registroPagoManagedBean.pago.fkIdJugador}" title="FkIdJugador" required="true" requiredMessage="Este campo es requerido.">
                                 
                                 <f:selectItems value="#{jugadorManagedBean.listarJugadores()}" var="jug" itemLabel="#{jug.usuario.documento}"/>
@@ -46,12 +46,21 @@
                             
                         </h:panelGrid>
                         <h:commandButton value="Registrar" action="#{registroPagoManagedBean.registrarPago()}"/>
+                        
+                        
                         </div>
                     </h:form>
+                                <h:form>
+                                    <div>
+                                        <h:commandButton value="Carga csv" action="#{registroPagoManagedBean.insertarDesdeCsv()}"/>
+                                    </div>
+                                     
+                                </h:form>
+                                
                     </div>
                             <div class="col-lg-4">
 
-
+                                         
                             </div>
                         </div>
                     </div>  
